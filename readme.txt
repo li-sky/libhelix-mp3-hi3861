@@ -99,8 +99,8 @@ be ordered differently for optimization purposes, scaled differently, etc.
 
 IPP 
 --- 
-For certain platforms Intel® has created highly-optimized object code libraries of DSP 
-routines. These are called the Intel® Integrated Performance Primitives (IPP). If IPP 
+For certain platforms Intelï¿½ has created highly-optimized object code libraries of DSP 
+routines. These are called the Intelï¿½ Integrated Performance Primitives (IPP). If IPP 
 libraries are available for a platform, this MP3 decoder can link them in and use them 
 instead of the RealNetworks source code. To use IPP, you still need to build the top-level 
 files (mp3dec.c, mp3tabs.c). You also build the files in ipp/*.c. These are just thin 
@@ -110,12 +110,12 @@ included in this module. You must obtain them WITH A LICENSE directly from Intel
 Further info on the latest versions of IPP (as of the date of this readme) is available 
 from the URLs below
 
-Intel® Integrated Performance Primitives for the 
-Intel® PXA25x and PXA26x family of Processors, Version 3.0 
+Intelï¿½ Integrated Performance Primitives for the 
+Intelï¿½ PXA25x and PXA26x family of Processors, Version 3.0 
 * http://www.intel.com/design/pca/applicationsprocessors/swsup/IPPv30.htm
 
-Intel® Integrated Performance Primitives for 
-Intel® Pentium® Processors and Intel® Itanium® Architectures 
+Intelï¿½ Integrated Performance Primitives for 
+Intelï¿½ Pentiumï¿½ Processors and Intelï¿½ Itaniumï¿½ Architectures 
 * http://www.intel.com/software/products/ipp/ipp30/
 
 These sites explain how to obtain IPP and the terms under which IPP libraries may be used.
@@ -136,6 +136,14 @@ write 32-bit C polyphase filter
 As these optimizations are completed, they will be added to the Helix codebase. Please 
 continue to check there for updates. Changes will be noted in this readme. 
 
-readme.txt last updated 07/23/03
+Hi3861 porting note
+---------------------
+Libhelix uses gnu-flavoured assmebly code, which is not supported with default compiling settings
+in liteos build system. To enable gnu-flavoured assembly code, please comment out the following
+line in //build/lite/config/BUILD.gn (or just change it to gnu99 or something, I don't know:)
+  cflags_c = [ "-std=c99" ] (Line 22)
+
+
+readme.txt last updated 06/19/23 by skyli <skyli@skyli.xyz>
 
 
